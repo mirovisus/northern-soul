@@ -68,7 +68,18 @@
     />
   </head>
   <body class="notranslate">
-    <div id="root"></div>
+    <div id="root">
+      <div class="ssr-fallback">
+        <img
+          class="ssr-fallback__image"
+          src="/images/heroMobile.webp"
+          alt=""
+          fetchpriority="high"
+          width="375"
+          height="667"
+        />
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
