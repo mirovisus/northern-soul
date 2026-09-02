@@ -1,0 +1,19 @@
+/* Utility classes: .visually-hidden, helper modifiers, etc. */
+@use 'mixins' as *;
+
+/* Text style utilities: paragraph variants that don't map to a semantic tag */
+
+.text-lead {
+  @include fluid-text(32, 16);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-small {
+  @include fluid-text(20, 14);
+  font-weight: 400;
+}

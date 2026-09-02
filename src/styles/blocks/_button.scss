@@ -1,0 +1,39 @@
+@use "../mixins" as *;
+@use "../media" as *;
+
+.button {
+  @include flex-center(true);
+
+  height: var(--button-height);
+  padding-inline: 54px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-light);
+  background-color: var(--color-dark);
+
+  border: var(--border);
+  border-radius: var(--border-radius-small);
+
+  @include tablet {
+    padding-inline: 36px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  @include hover {
+    color: var(--color-accent);
+    background-color: var(--color-light-alt);
+    border-color: var(--color-accent);
+  }
+  
+  &--accent {
+    color: var(--color-light);
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+
+    @include hover {
+      color: var(--color-light);
+      background-color: var(--color-accent-alt);
+    }
+  }
+}

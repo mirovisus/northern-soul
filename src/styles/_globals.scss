@@ -1,0 +1,48 @@
+/* Global typography: html, body, headings, paragraphs, links. Uses tokens from _variables. */
+@use 'mixins' as *;
+
+body {
+  @include fluid-text(24, 14);
+
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.28;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Display headings - Agnets
+h1, .h1 {
+  @include fluid-text(240, 106);
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1;
+}
+
+h2, .h2 {
+  @include fluid-text(96, 54);
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+// Sub-heading - Bellota bold
+h3, .h3 {
+  @include fluid-text(31, 20);
+  font-weight: 700;
+  line-height: 1.2;
+}

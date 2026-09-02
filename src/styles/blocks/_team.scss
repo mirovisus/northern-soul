@@ -1,0 +1,87 @@
+@use "../media" as *;
+@use "../mixins" as *;
+
+.team {
+  &__title {
+    color: var(--color-light);
+    margin: 0 0 60px;
+
+    @include mobile {
+      margin: 0 0 32px;
+      text-align: center;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include tablet {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      gap: 16px;
+      margin: 0 -20px;
+      padding: 0 20px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include tablet {
+      flex: 0 0 240px;
+      scroll-snap-align: start;
+    }
+
+    @include mobile {
+      flex: 0 0 200px;
+    }
+  }
+
+  &__photo-wrapper {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 2px;
+    background-color: #f4f4f4;
+  }
+
+  &__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-duration);
+  }
+
+  &__name {
+    font-size: 20px;
+    color: var(--color-light);
+    margin: 0;
+
+    @include mobile {
+      font-size: 18px;
+    }
+  }
+
+  &__role {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-light-alt);
+    line-height: 1.4;
+    margin: 0;
+  }
+}

@@ -1,0 +1,137 @@
+@use "../media" as *;
+@use "../mixins" as *;
+
+.project-card {
+  @include reset-link;
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius);
+  }
+
+  @include mobile-above {
+    display: flex;
+    align-items: center;
+    gap: -2px;
+    transition: gap var(--transition-duration) ease;
+  }
+
+  @include hover {
+    gap: 0;
+
+    .project-card__like {
+      width: 200px;
+      gap: 12px;
+      padding-inline: 24px;
+    }
+
+    .project-card__like-text {
+      opacity: 1;
+      max-width: 160px;
+    }
+  }
+
+  &__info {
+    @include mobile-above {
+      flex-shrink: 0;
+      height: 72px;
+      overflow: hidden;
+      background-color: var(--color-light);
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+  }
+
+  &__content {
+    @include mobile-above {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 100%;
+      padding: 5px 24px 5px 6px;
+    }
+  }
+
+  &__text {
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 12px;
+    }
+
+    @include mobile-above {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+  }
+
+  &__thumb {
+    @include mobile-above {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  &__label {
+    @include mobile {
+      font-size: 16px;
+    }
+
+    @include mobile-above {
+      font-size: 18px;
+      font-weight: 400;
+    }
+  }
+
+  &__title {
+    @include mobile {
+      font-size: 18px;
+    }
+
+    @include mobile-above {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+
+  &__like {
+    @include flex-center;
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    overflow: hidden;
+    color: var(--color-light);
+    background-color: var(--color-accent);
+    border-radius: 9999px;
+    white-space: nowrap;
+    transition:
+      width var(--transition-duration) ease,
+      padding var(--transition-duration) ease,
+      gap var(--transition-duration) ease;
+  }
+
+  &__like-text {
+    max-width: 0;
+    overflow: hidden;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0;
+    transition:
+      max-width var(--transition-duration) ease,
+      opacity var(--transition-duration) ease;
+  }
+
+  &__cta {
+    @include mobile {
+      margin: 0 12px 12px;
+    }
+  }
+}

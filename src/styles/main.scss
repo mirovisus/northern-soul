@@ -1,0 +1,28 @@
+/* Root stylesheet. Aggregates all partials via @use in strict order: abstracts -> base -> layout -> sections -> components. */
+@use 'variables';
+@use 'mixins';
+@use 'media';
+@use 'fonts';
+@use 'normalize';
+@use 'globals';
+@use 'utils';
+@use 'container';
+@use 'header';
+
+@use 'blocks/button';
+@use 'blocks/burger-button';
+@use 'blocks/mobile-overlay';
+@use 'blocks/cross-button';
+@use 'blocks/section';
+@use 'blocks/hero';
+@use 'blocks/project-card';
+@use 'blocks/stats';
+@use 'blocks/mission';
+@use 'blocks/grid';
+@use 'blocks/about';
+@use 'blocks/lectures';
+@use 'blocks/products';
+@use 'blocks/donation';
+@use 'blocks/donation-form';
+@use 'blocks/team';
+@use 'blocks/footer';

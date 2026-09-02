@@ -1,0 +1,113 @@
+@use "../media" as *;
+@use "../mixins" as *;
+
+.donation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  // Toggle styled as tabs, not a pill
+  &__toggle {
+    display: flex;
+    background-color: var(--color-light-alt);
+    border-radius: var(--border-radius-small);
+    padding: 4px;
+  }
+
+  &__toggle-button {
+    flex: 1;
+    padding: 12px 20px;
+    background: transparent;
+    border: none;
+    border-radius: var(--border-radius-small);
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--color-dark-alt);
+    cursor: pointer;
+    transition: all var(--transition-duration);
+
+    &--active {
+      background-color: var(--color-light);
+      color: var(--color-dark);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  // Amounts styled more like "stamped" buttons
+  &__amounts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  &__amount {
+    padding: 12px 16px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: var(--border-radius-small);
+    font-family: inherit;
+    font-size: 20px;
+    color: var(--color-dark);
+    cursor: pointer;
+    transition: all var(--transition-duration);
+
+    @include hover {
+      border-color: var(--color-dark);
+    }
+
+    &--active {
+      background-color: var(--color-dark);
+      color: var(--color-light);
+      border-color: var(--color-dark);
+    }
+  }
+
+  // Input without a "box", with an underline
+  &__input {
+    width: 100%;
+    padding: 16px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+    font-family: inherit;
+    font-size: 18px;
+    color: var(--color-dark);
+    transition: border-color var(--transition-duration);
+
+    &::placeholder {
+      color: var(--color-dark-alt);
+      font-style: italic;
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom-color: var(--color-accent);
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    padding: 20px;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: var(--border-radius-small);
+    justify-content: center;
+    margin-top: 8px;
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  &__hint {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-dark-alt);
+    text-align: center;
+    margin: 0;
+  }
+}

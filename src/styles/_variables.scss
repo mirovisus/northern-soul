@@ -1,0 +1,31 @@
+/* Design tokens: colors, typography scale, spacing, breakpoints. No output CSS. */
+:root {
+    --color-dark: #191A23;
+    --color-dark-alt: #292a2e;
+    --color-light: #FDFFFF;
+    --color-light-alt: #efefee;
+    --color-accent: #9A0002;
+    --color-accent-alt: #790709;
+    --color-gray: #E8E5DF;
+    --color-gray-alt: #C9C5BE;
+
+    --border: 1px solid var(--color-dark);
+    --border-radius: 12px;
+    --border-radius-small: 6px;
+    --border-radius-large: 30px;
+
+    --shadow: 0 5px 0 0 var(--color-dark);
+
+    --font-heading: 'Agnets Type', 'Quintessential', serif;
+    --font-body: 'Bellota Text', sans-serif;
+
+    --container-width: 1260px;
+    --container-padding-x: 20px;
+
+    --section-padding-y: 42px;
+
+    --input-height: 60px;
+    --button-height: 48px;
+
+    --transition-duration: 0.2s;
+}

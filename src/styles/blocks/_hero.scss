@@ -1,0 +1,122 @@
+@use "../media" as *;
+@use "../mixins" as *;
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  background-color: var(--color-dark);
+
+  @include mobile {
+    height: 100svh;
+    min-height: 500px;
+  }
+
+  &__media {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    &--back {
+      z-index: 1;
+    }
+
+    &--front {
+      z-index: 3;
+    }
+  }
+
+  &__layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    pointer-events: none;
+
+    &--background {
+      z-index: 1;
+    }
+
+    &--tower {
+      z-index: 2;
+    }
+
+    &--church {
+      z-index: 3;
+    }
+
+    &--grass {
+      z-index: 4;
+      height: 150%;
+      object-position: center bottom;
+    }
+  }
+
+  &__mobile-image,
+  &__tablet-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &__content {
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 0 60px;
+    z-index: 2;
+    text-align: center;
+
+    @include tablet {
+      padding: 0 40px;
+    }
+
+    @include mobile {
+      padding: 0 24px;
+    }
+  }
+
+  &__title {
+    color: var(--color-accent);
+    margin: 0;
+
+    @include mobile {
+      font-size: 96px;
+    }
+  }
+
+  &__subtitle {
+    color: var(--color-dark);
+    font-weight: 700;
+    max-width: 400px;
+    margin: 24px auto 0;
+
+    @include mobile {
+      font-size: 20px;
+    }
+  }
+
+  &__project {
+    position: absolute;
+    z-index: 10;
+    left: 24px;
+    bottom: 24px;
+
+    @include mobile {
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+    }
+  }
+}

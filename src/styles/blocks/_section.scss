@@ -1,0 +1,63 @@
+@use "../media" as *;
+@use "../mixins" as *;
+
+.section {
+  scroll-margin-top: 80px;
+
+  @include mobile {
+    scroll-margin-top: 60px;
+  }
+
+  padding-block: var(--section-padding-y);
+
+  &--hidden-x {
+    overflow-x: hidden;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+
+    @include mobile {
+      flex-direction: column;
+      row-gap: 30px;
+      text-align: center;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 80px;
+
+      @include mobile {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &__description {
+    max-width: 580px;
+  }
+
+  &--hero {
+    padding: 0;
+    max-width: none;
+  }
+
+  &--stats {
+    padding-block: 67px;
+    background-color: var(--color-dark);
+
+    @include mobile {
+      padding-block: 45px;
+    }
+  }
+
+  &--mission {
+    padding: 0;
+  }
+
+  &--team {
+    background-color: var(--color-dark);
+    padding-bottom: calc(var(--section-padding-y) * 2);
+  }
+}
