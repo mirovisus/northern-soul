@@ -44,26 +44,26 @@ import "lenis/dist/lenis.css";
 
 const LECTURES = [
   {
-    title: "The Russian North: Architecture and Folklore",
-    author: "Elizaveta Krasnaya",
+    title: "The Northern Lands: Architecture and Folklore",
+    author: "Anja Kowalska",
     description:
-      'The culture of the Russian North took shape in the 16th and 17th centuries, giving rise to distinctive northern "schools" of wooden architecture, painting, and carving. In this lecture, we\'ll explore what sets the northern schools apart from those of central Russia and take a closer look at some of the most remarkable works of art from the region.',
+      'The culture of the northern lands took shape in the 16th and 17th centuries, giving rise to distinctive northern "schools" of wooden architecture, painting, and carving. In this lecture, we\'ll explore what sets the northern schools apart from those of the southern regions and take a closer look at some of the most remarkable works of art from the region.',
     price: "12€",
     image: lecture1,
   },
   {
     title: "Wooden Churches of the North: A Vanishing World",
-    author: "Sofia Shadrina",
+    author: "Marek Vilkas",
     description:
-      "For centuries, the villages of the Russian North were home to some of the most extraordinary wooden churches ever built - soaring tented roofs, onion domes shaped by axe alone, and interiors painted with quiet devotion. Today, many of these monuments are on the brink of being lost forever. In this lecture, we'll trace the story of northern wooden church-building, from its medieval roots to the master carpenters of the 18th century, and consider what it means to save what still stands.",
+      "For centuries, the villages of the North were home to some of the most extraordinary wooden churches ever built - soaring tented roofs, onion domes shaped by axe alone, and interiors painted with quiet devotion. Today, many of these monuments are on the brink of being lost forever. In this lecture, we'll trace the story of northern wooden church-building, from its medieval roots to the master carpenters of the 18th century, and consider what it means to save what still stands.",
     price: "12€",
     image: lecture2,
   },
   {
     title: "Life Along the Northern Dvina: Villages, Trades, and Traditions",
-    author: "Sofia Shadrina",
+    author: "Marek Vilkas",
     description:
-      "The Russian North was never truly isolated - it was shaped by rivers, trade routes, and centuries of exchange between peasants, monks, merchants, and the peoples of the surrounding forests. This lecture takes you into everyday life in a northern village: the rhythm of the seasons, the crafts passed down through generations, the songs and rituals that filled the long winter nights, and the quiet resilience of communities living at the edge of the empire.",
+      "The northern lands were never truly isolated - they were shaped by rivers, trade routes, and centuries of exchange between peasants, monks, merchants, and the peoples of the surrounding forests. This lecture takes you into everyday life in a northern village: the rhythm of the seasons, the crafts passed down through generations, the songs and rituals that filled the long winter nights, and the quiet resilience of communities living at the edge of the settled world.",
     price: "12€",
     image: lecture3,
   },
@@ -420,7 +420,7 @@ const App = () => {
                 <li className="mission__pillar mission__pillar--left-3">
                   <h3 className="mission__pillar-title">Community</h3>
                   <p className="mission__pillar-description">
-                    bringing together those who love the Russian North
+                    bringing together those who love the northern lands
                   </p>
                 </li>
               </ul>
