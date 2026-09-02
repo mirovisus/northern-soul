@@ -4,6 +4,7 @@ import heroBackground from "./assets/images/heroBackground.webp";
 import heroTower from "./assets/images/heroTower.webp";
 import heroChurch from "./assets/images/heroChurch.webp";
 import heroGrass from "./assets/images/heroGrass.webp";
+import heroMobile from "./assets/images/heroMobile.webp";
 import heroTablet from "./assets/images/heroTablet.webp";
 import heroThumb from "./assets/images/heroThumb.webp";
 import missionSky from "./assets/images/missionSky.webp";
@@ -223,7 +224,7 @@ const App = () => {
               {isMobile && (
                 <img
                   className="hero__mobile-image"
-                  src="/images/heroMobile.webp"
+                  src={heroMobile}
                   alt=""
                   fetchPriority="high"
                 />
