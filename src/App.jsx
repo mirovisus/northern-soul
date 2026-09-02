@@ -143,11 +143,11 @@ const App = () => {
     <div>
       <header className="header">
         <div className="header__inner container">
-          <a href="/" className="header__logo logo">
+          <a href="/" className="header__logo logo" aria-label="Northern Soul Foundation - home">
             <img
               className="logo__image"
               src={logo}
-              alt="Northern Soul"
+              alt=""
               width="178"
               height="48"
               fetchPriority="high"
@@ -353,6 +353,7 @@ const App = () => {
           id="mission"
           ref={missionScrollRef}
           className="section section--mission mission"
+          aria-labelledby="mission-title"
         >
           {/* Content: top half */}
           <div className="mission__body">
@@ -384,7 +385,7 @@ const App = () => {
             />
 
             <div className="mission__body-inner container">
-              <h2 className="mission__title">Our Mission</h2>
+              <h2 id="mission-title" className="mission__title">Our Mission</h2>
 
               <ul className="mission__pillars">
                 <li className="mission__pillar mission__pillar--left-1">
@@ -459,9 +460,9 @@ const App = () => {
           </div>
         </section>
 
-        <section id="church" className="section section--about about">
+        <section id="church" className="section section--about about" aria-labelledby="church-title">
           <div className="container">
-            <h2 className="about__title">About the Church</h2>
+            <h2 id="church-title" className="about__title">About the Church</h2>
 
             {/* Desktop/tablet: hero image with gradient darkening + Read more hint on top */}
             <div className="about__hero-wrapper hidden-mobile">
@@ -627,7 +628,7 @@ const App = () => {
           </div>
         </section>
 
-        <section id="lectures" className="section section--lectures lectures">
+        <section id="lectures" className="section section--lectures lectures" aria-labelledby="lectures-title">
           <div className="container">
             <h2 className="lectures__title visible-mobile">Lectures</h2>
             <div className="lectures__inner">
@@ -702,7 +703,7 @@ const App = () => {
 
               {/* Desktop layout */}
               <div className="lectures__content hidden-mobile">
-                <h2 className="lectures__title">Lectures</h2>
+                <h2 id="lectures-title" className="lectures__title">Lectures</h2>
 
                 <div className="lectures__card">
                   <h3 className="lectures__card-title">
@@ -743,7 +744,7 @@ const App = () => {
           </div>
         </section>
 
-        <section id="shop" className="section section--products products">
+        <section id="shop" className="section section--products products" aria-labelledby="products-title">
           <div className="container">
             {/* Mobile title on top */}
             <h2 className="products__title visible-mobile">Our Products</h2>
@@ -829,7 +830,7 @@ const App = () => {
 
               <div className="products__content hidden-mobile">
                 {/* Title stays inside for desktop */}
-                <h2 className="products__title">Our Products</h2>
+                <h2 id="products-title" className="products__title">Our Products</h2>
 
                 <div className="products__card">
                   <h3 className="products__card-title">
@@ -857,6 +858,7 @@ const App = () => {
           id="donate"
           ref={donationScrollRef}
           className="section section--donation donation"
+          aria-labelledby="donation-title"
         >
           {/* Background decorative elements */}
           <img
@@ -891,7 +893,7 @@ const App = () => {
           {/* Content */}
           <div className="container">
             <div className="donation__content">
-              <h2 className="donation__title">Make a Donation</h2>
+              <h2 id="donation-title" className="donation__title">Make a Donation</h2>
 
               <div className="donation__form">
                 <form
@@ -977,9 +979,9 @@ const App = () => {
           </div>
         </section>
 
-        <section className="section section--team team">
+        <section className="section section--team team" aria-labelledby="team-title">
           <div className="container">
-            <h2 className="team__title">Our Team</h2>
+            <h2 id="team-title" className="team__title">Our Team</h2>
 
             <ul className="team__list">
               {TEAM.map((member, index) => (
