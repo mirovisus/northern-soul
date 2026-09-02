@@ -68,18 +68,30 @@
     />
   </head>
   <body class="notranslate">
-    <div id="root">
-      <div class="ssr-fallback">
-        <img
-          class="ssr-fallback__image"
-          src="/images/heroMobile.webp"
-          alt=""
-          fetchpriority="high"
-          width="375"
-          height="667"
-        />
-      </div>
+    <div class="ssr-fallback" id="ssrFallback">
+      <img
+        class="ssr-fallback__image"
+        src="/images/heroMobile.webp"
+        alt=""
+        fetchpriority="high"
+        width="375"
+        height="667"
+      />
     </div>
+    <div id="root"></div>
+    <script>
+      // Hide the fallback once React has mounted the real app.
+      // Uses requestIdleCallback with a rAF fallback for older browsers.
+      const hideFallback = () => {
+        const el = document.getElementById('ssrFallback');
+        if (el) el.style.display = 'none';
+      };
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(hideFallback, { timeout: 3000 });
+      } else {
+        requestAnimationFrame(() => setTimeout(hideFallback, 100));
+      }
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
