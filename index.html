@@ -64,8 +64,45 @@
       media="(max-width: 767px)"
       href="/images/heroMobile.webp"
     />
+
+    <style>
+      .app-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #191A23;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+      .app-loader--hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .app-loader__spinner {
+        width: 48px;
+        height: 48px;
+        border: 3px solid rgba(253, 255, 255, 0.15);
+        border-top-color: #FDFFFF;
+        border-radius: 50%;
+        animation: app-loader-spin 0.8s linear infinite;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .app-loader__spinner {
+          animation-duration: 2s;
+        }
+      }
+      @keyframes app-loader-spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
   </head>
   <body>
+    <div class="app-loader" id="appLoader" aria-hidden="true">
+      <div class="app-loader__spinner"></div>
+    </div>
     <div class="ssr-fallback" id="ssrFallback">
       <img
         class="ssr-fallback__image"
@@ -91,5 +128,48 @@
       }
     </script>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      (function() {
+        var loader = document.getElementById('appLoader');
+        if (!loader) return;
+
+        var minTime = 400;
+        var startTime = Date.now();
+        var reactReady = false;
+        var fontsReady = false;
+
+        function tryHide() {
+          if (!reactReady || !fontsReady) return;
+          var elapsed = Date.now() - startTime;
+          var wait = Math.max(0, minTime - elapsed);
+          setTimeout(function() {
+            loader.classList.add('app-loader--hidden');
+            setTimeout(function() {
+              loader.remove();
+            }, 600);
+          }, wait);
+        }
+
+        window.addEventListener('react-mounted', function() {
+          reactReady = true;
+          tryHide();
+        });
+
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(function() {
+            fontsReady = true;
+            tryHide();
+          });
+        } else {
+          fontsReady = true;
+        }
+
+        setTimeout(function() {
+          reactReady = true;
+          fontsReady = true;
+          tryHide();
+        }, 5000);
+      })();
+    </script>
   </body>
 </html>

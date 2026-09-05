@@ -8,3 +8,9 @@ createRoot(document.getElementById('root')).render(
     <App />
   </StrictMode>,
 )
+
+requestAnimationFrame(function() {
+  requestAnimationFrame(function() {
+    window.dispatchEvent(new Event('react-mounted'));
+  });
+})
