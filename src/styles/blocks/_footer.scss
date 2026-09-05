@@ -83,8 +83,8 @@
     padding: 0;
 
     @include mobile {
-      gap: 9px;
-      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: nowrap;
     }
   }
 
@@ -103,6 +103,13 @@
       color: #1a1a1e;
       background-color: #d9d3c8;
       border-color: #d9d3c8;
+    }
+
+    @include mobile {
+      flex: 1;
+      justify-content: space-between;
+      text-align: center;
+      padding: 8px 16px;
     }
   }
 
