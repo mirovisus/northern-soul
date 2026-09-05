@@ -139,6 +139,14 @@ const App = () => {
 
   const finalAmount = customAmount ? Number(customAmount) : selectedAmount;
 
+  const getDonationMessage = (amount) => {
+    if (!amount || amount < 10) return "";
+    if (amount < 25) return "Every contribution matters";
+    if (amount < 50) return "This buys a day of a carpenter's work";
+    if (amount < 100) return "This restores one wooden shingle";
+    return "This preserves history";
+  };
+
   return (
     <div>
       <header className="header">
@@ -905,6 +913,10 @@ const App = () => {
                   </p>
                   {/* Type toggle */}
                   <div className="donation-form__toggle">
+                    <div
+                      className={`donation-form__toggle-indicator donation-form__toggle-indicator--${donationType === "one-time" ? "left" : "right"}`}
+                      aria-hidden="true"
+                    />
                     <button
                       type="button"
                       className={`donation-form__toggle-button ${
@@ -942,7 +954,7 @@ const App = () => {
                         }`}
                         onClick={() => {
                           setSelectedAmount(amount);
-                          setCustomAmount("");
+                          setCustomAmount(String(amount));
                         }}
                       >
                         {amount}€
@@ -951,18 +963,39 @@ const App = () => {
                   </div>
 
                   {/* Custom amount */}
-                  <input
-                    type="number"
-                    inputMode="numeric"
-                    min="1"
-                    placeholder="Enter amount..."
-                    className="donation-form__input"
-                    value={customAmount}
-                    onChange={(e) => {
-                      setCustomAmount(e.target.value);
-                      setSelectedAmount(null);
-                    }}
-                  />
+                  <div className={`donation-form__field ${customAmount ? "donation-form__field--filled" : ""}`}>
+                    <input
+                      id="donation-amount"
+                      type="number"
+                      inputMode="numeric"
+                      min="1"
+                      placeholder=" "
+                      className="donation-form__input"
+                      value={customAmount}
+                      onChange={(e) => {
+                        setCustomAmount(e.target.value);
+                        setSelectedAmount(null);
+                      }}
+                    />
+                    <label
+                      htmlFor="donation-amount"
+                      className="donation-form__label"
+                    >
+                      Enter amount
+                    </label>
+                  </div>
+
+                  {/* Contextual donation message */}
+                  <p className="donation-form__message" aria-live="polite">
+                    {getDonationMessage(finalAmount) && (
+                      <span
+                        key={getDonationMessage(finalAmount)}
+                        className="donation-form__message-text"
+                      >
+                        {getDonationMessage(finalAmount)}
+                      </span>
+                    )}
+                  </p>
 
                   {/* Submit button */}
                   <button
@@ -970,8 +1003,25 @@ const App = () => {
                     className="donation-form__submit button button--accent"
                     disabled={!finalAmount || finalAmount < 1}
                   >
-                    Donate {finalAmount ? `- ${finalAmount}€` : ""}{" "}
-                    {donationType === "monthly" ? "Monthly" : ""}
+                    <span className="donation-form__submit-text">
+                      <span>Donate</span>
+                      {finalAmount ? (
+                        <span
+                          key={`amount-${finalAmount}`}
+                          className="donation-form__submit-amount"
+                        >
+                          {finalAmount}€
+                        </span>
+                      ) : null}
+                      {donationType === "monthly" ? (
+                        <span
+                          key="monthly-tag"
+                          className="donation-form__submit-monthly"
+                        >
+                          Monthly
+                        </span>
+                      ) : null}
+                    </span>
                   </button>
                 </form>
               </div>
