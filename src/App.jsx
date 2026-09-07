@@ -32,6 +32,7 @@ import team3 from "./assets/images/team_3.webp";
 import team4 from "./assets/images/team_4.webp";
 import team5 from "./assets/images/team_5.webp";
 import arrowIcon from "./assets/icons/arrow.svg";
+import { Analytics } from "@vercel/analytics/react";
 import { useCarousel } from "./hooks/useCarousel";
 import { useSwipeCarousel } from "./hooks/useSwipeCarousel";
 import { useParallax } from "./hooks/useParallax";
@@ -1227,6 +1228,8 @@ const App = () => {
           </ul>
         </div>
       </dialog>
+
+      <Analytics />
     </div>
   );
 };
