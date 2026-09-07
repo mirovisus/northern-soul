@@ -38,6 +38,14 @@
     }
   }
 
+  &__item--raised {
+    padding-left: 20px;
+
+    @include mobile {
+      padding-left: 0;
+    }
+  }
+
   &__number {
     @include fluid-text(67, 39);
     font-family: var(--font-heading);

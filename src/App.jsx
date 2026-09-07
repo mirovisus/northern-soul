@@ -120,7 +120,7 @@ const App = () => {
 
   const [churchesCount, churchesRef] = useCountUp(14);
   const [expeditionsCount, expeditionsRef] = useCountUp(47);
-  const [raisedCount, raisedRef] = useCountUp(450);
+  const [raisedCount, raisedRef] = useCountUp(450000);
 
   const missionScrollRef = useScrollProgress();
   const donationScrollRef = useScrollProgress("through");
@@ -347,10 +347,10 @@ const App = () => {
               <p className="stats__label">Expeditions</p>
             </div>
 
-            <div className="stats__item">
+            <div className="stats__item stats__item--raised">
               <p ref={raisedRef} className="stats__number">
-                {raisedCount}
-                <span className="stats__number-accent">K</span>
+                <span className="stats__number-accent">€</span>
+                {raisedCount.toLocaleString("en-US")}
               </p>
               <p className="stats__label">Raised</p>
             </div>
